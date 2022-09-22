@@ -19,25 +19,17 @@ class TopProductsList extends StatefulWidget {
 }
 
 class _TopProductsListState extends State<TopProductsList> {
-  Future<Either<ErrorModel, List<ProductModel>>> _getProducts(
-      BuildContext context) async {
-    String data = await DefaultAssetBundle.of(context)
-        .loadString("assets/json/data.json");
-    List jsonResult = jsonDecode(data);
-    return Right(jsonResult.map((e) => ProductModel.fromMap(e)).toList());
-  }
-
   Widget _loadError(String message) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         AppFont.mediumBold(message),
         MaterialButton(
-            child: const Text('Reload'),
             color: AppColors.orange,
             onPressed: () {
               setState(() {});
-            })
+            },
+            child: const Text('Reload')),
       ],
     );
   }
