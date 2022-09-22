@@ -16,6 +16,7 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   http: ^0.13.5
   persistent_bottom_nav_bar: ^5.0.2
+  provider: ^6.0.3
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -26,6 +27,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/json/
+    - assets/image/
 
   fonts:
     - family: Roboto

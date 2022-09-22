@@ -23,9 +23,7 @@ class RequestError extends ErrorModel {
 }
 
 class NetworkError extends ErrorModel {
-  Map message;
-
-  NetworkError(this.message) : super(message);
+  NetworkError(super.message);
 
   @override
   String getCode() {

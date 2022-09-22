@@ -11,7 +11,7 @@ class TabOverlay extends StatelessWidget {
   TabOverlay({super.key});
 
   final PersistentTabController _controller =
-      PersistentTabController(initialIndex: 1);
+      PersistentTabController(initialIndex: 0);
 
   List<Widget> _buildScreens() {
     return [

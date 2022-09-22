@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ntisa_burgers">
+   <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="ntisa_burgers"
         android:name="${applicationName}"
