@@ -34,9 +34,6 @@ class Homepage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextField(
-                        // keyboardType: widget.keyboardType,
-                        // controller: controller,
-                        // obscureText: widget.hideInputs,
                         decoration: InputDecoration(
                           filled: true,
                           prefixIcon: const Padding(
@@ -45,11 +42,11 @@ class Homepage extends StatelessWidget {
                             child: FaIcon(FontAwesomeIcons.magnifyingGlass),
                           ),
                           hintText: 'Find what you want',
-                          hintStyle: TextStyle(color: AppColors.grey),
+                          hintStyle: const TextStyle(color: AppColors.grey),
                           fillColor: AppColors.backgroundPink,
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   width: 0, style: BorderStyle.none)),
                         ),
                       ),
@@ -88,7 +85,7 @@ class Homepage extends StatelessWidget {
                     ),
                     Positioned(
                       bottom: 10,
-                      right: 30,
+                      right: 35,
                       child: Image.asset(
                         AppImages.burger,
                         height: 100,
@@ -104,7 +101,7 @@ class Homepage extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
-                  children: [
+                  children: const [
                     FoodTypeCard(name: 'Burger', icon: FontAwesomeIcons.burger),
                     FoodTypeCard(
                         name: 'Pizza', icon: FontAwesomeIcons.pizzaSlice),
@@ -126,7 +123,7 @@ class Homepage extends StatelessWidget {
               SizedBox(
                 height: 210,
                 width: MediaQuery.of(context).size.width,
-                child: TopProductsList(),
+                child: const TopProductsList(),
               ),
             ],
           ),

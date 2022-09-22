@@ -11,8 +11,10 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   either_dart: ^0.2.0
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.0.2
   font_awesome_flutter: ^10.2.1
   http: ^0.13.5
   persistent_bottom_nav_bar: ^5.0.2
@@ -28,6 +30,7 @@ flutter:
   assets:
     - assets/json/
     - assets/image/
+    - .env
 
   fonts:
     - family: Roboto

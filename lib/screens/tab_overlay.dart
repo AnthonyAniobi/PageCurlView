@@ -5,6 +5,7 @@ import 'package:ntisa_burgers/screens/carts/cart_screen.dart';
 import 'package:ntisa_burgers/screens/favorites/favorites_screen.dart';
 import 'package:ntisa_burgers/screens/history/history_screen.dart';
 import 'package:ntisa_burgers/screens/homepage/homepage.dart';
+import 'package:ntisa_burgers/widgets/cart_icon.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class TabOverlay extends StatelessWidget {
@@ -31,7 +32,7 @@ class TabOverlay extends StatelessWidget {
         inactiveColorPrimary: AppColors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: const FaIcon(FontAwesomeIcons.basketShopping),
+        icon: const CartIcon(),
         textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
         activeColorPrimary: AppColors.orange,
         inactiveColorPrimary: AppColors.grey,

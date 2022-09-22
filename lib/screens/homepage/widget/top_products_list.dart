@@ -6,6 +6,7 @@ import 'package:ntisa_burgers/constants/app_colors.dart';
 import 'package:ntisa_burgers/model/product_model.dart';
 import 'package:ntisa_burgers/model/error_model.dart';
 import 'package:ntisa_burgers/screens/homepage/widget/top_product_card.dart';
+import 'package:ntisa_burgers/services/backend_request/backend_request.dart';
 import 'package:ntisa_burgers/widgets/app_fonts.dart';
 
 class TopProductsList extends StatefulWidget {
@@ -33,6 +34,7 @@ class _TopProductsListState extends State<TopProductsList> {
         AppFont.mediumBold(message),
         MaterialButton(
             child: const Text('Reload'),
+            color: AppColors.orange,
             onPressed: () {
               setState(() {});
             })
@@ -43,18 +45,16 @@ class _TopProductsListState extends State<TopProductsList> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: _getProducts(context),
+        future: BackendRequest.getData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(color: AppColors.orange),
             );
           } else if (snapshot.connectionState == ConnectionState.none) {
             return _loadError('No data!');
           } else if (snapshot.hasData) {
-            if (snapshot.data!.isLeft) {
-              _loadError(snapshot.data!.left.getMessage());
-            } else {
+            if (snapshot.data!.isRight) {
               List<ProductModel> _data = snapshot.data!.right;
               return ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -66,8 +66,10 @@ class _TopProductsListState extends State<TopProductsList> {
                     return TopProductCard(product: _data[index]);
                   });
             }
+            return _loadError(snapshot.data!.left.getMessage());
+          } else {
+            return _loadError('An error occured');
           }
-          return _loadError('An error occured');
         });
   }
 }

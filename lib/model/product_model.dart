@@ -1,4 +1,6 @@
-class ProductModel {
+import 'package:equatable/equatable.dart';
+
+class ProductModel extends Equatable {
   late String id;
   late String imageUrl;
   late String name;
@@ -6,6 +8,9 @@ class ProductModel {
   late String price;
   late int rate;
   late String country;
+
+  // objects for cart
+  int quantity = 1;
 
   ProductModel(this.id, this.imageUrl, this.name, this.description, this.price,
       this.rate, this.country);
@@ -19,4 +24,8 @@ class ProductModel {
     rate = map['rate'] ?? 0;
     country = map['country'] ?? '';
   }
+
+  @override
+  List<Object?> get props =>
+      [id, imageUrl, name, description, price, rate, country];
 }

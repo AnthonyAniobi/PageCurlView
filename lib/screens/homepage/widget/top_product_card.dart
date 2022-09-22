@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ntisa_burgers/constants/app_colors.dart';
 import 'package:ntisa_burgers/model/product_model.dart';
 import 'package:ntisa_burgers/screens/product_details/product_details.dart';
+import 'package:ntisa_burgers/services/providers/cart_provider.dart';
 import 'package:ntisa_burgers/widgets/app_fonts.dart';
 
 class TopProductCard extends StatelessWidget {
@@ -13,9 +14,9 @@ class TopProductCard extends StatelessWidget {
   }) : super(key: key);
 
   void _addToCart(BuildContext context) {
+    CartProvider.of(context).addToCart(product);
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text('Added ${product.name} to cart')));
-    print('add');
   }
 
   void _moveToDetail(BuildContext context) {

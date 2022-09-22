@@ -9,7 +9,12 @@ class CartProvider extends ChangeNotifier {
       Provider.of(context, listen: listen);
 
   void addToCart(ProductModel product) {
-    cartItems.add(product);
+    if (cartItems.contains(product)) {
+      int productIndex = cartItems.indexOf(product);
+      cartItems[productIndex].quantity += product.quantity;
+    } else {
+      cartItems.add(product);
+    }
     notifyListeners();
   }
 
@@ -21,5 +26,13 @@ class CartProvider extends ChangeNotifier {
     }
     notifyListeners();
     return result;
+  }
+
+  int numInCart() {
+    return cartItems.length;
+  }
+
+  bool inCart(ProductModel product) {
+    return cartItems.contains(product);
   }
 }
