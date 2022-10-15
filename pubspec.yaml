@@ -1,48 +1,14 @@
-name: ntisa_burgers
-description: Mobile Development Asessment from ntisa.
-
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
-version: 1.0.0+1
+name: page_curl_view
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+# homepage: https://www.example.com
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
 
-dependencies:
-  cupertino_icons: ^1.0.2
-  either_dart: ^0.2.0
-  equatable: ^2.0.5
-  flutter:
-    sdk: flutter
-  flutter_dotenv: ^5.0.2
-  font_awesome_flutter: ^10.2.1
-  http: ^0.13.5
-  persistent_bottom_nav_bar: ^5.0.2
-  provider: ^6.0.3
+# dependencies:
+#   path: ^1.8.0
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
-  flutter_test:
-    sdk: flutter
-
-flutter:
-  uses-material-design: true
-  assets:
-    - assets/image/
-    - .env
-
-  fonts:
-    - family: Roboto
-      fonts:
-        - asset: assets/fonts/Roboto-Thin.ttf
-          weight: 200
-        - asset: assets/fonts/Roboto-Light.ttf
-          weight: 300
-        - asset: assets/fonts/Roboto-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Roboto-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Roboto-Bold.ttf
-          weight: 600
-        - asset: assets/fonts/Roboto-Black.ttf
-          weight: 700
+  lints: ^2.0.0
+  test: ^1.16.0
