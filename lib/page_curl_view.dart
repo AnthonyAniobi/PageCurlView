@@ -1,7 +1,4 @@
 library page_curl_view;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/page_curl_view_base.dart';
+export 'src/page_curl/page_curl.dart' show PageCurl;

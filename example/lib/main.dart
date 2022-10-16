@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_curl_view/page_curl_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Page Curl')),
-      // b,
+      body: PageCurlView(children: []),
     );
   }
 }

@@ -32,6 +32,10 @@ class PageCurlView extends StatefulWidget {
 class _PageCurlViewState extends State<PageCurlView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: Text('pagecurl'),
+      ),
+    );
   }
 }
