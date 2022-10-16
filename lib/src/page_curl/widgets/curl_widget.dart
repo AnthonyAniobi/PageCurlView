@@ -36,37 +36,37 @@ class _CurlWidgetState extends State<CurlWidget> {
   int mCurlSpeed = 60;
 
   /* The initial offset for x and y axis movements */
-  int mInitialEdgeOffset;
+  late int mInitialEdgeOffset;
 
   /* Maximum radius a page can be flipped, by default it's the width of the view */
-  double mFlipRadius;
+  late double mFlipRadius;
 
   /* pointer used to move */
-  Vector2D mMovement;
+  late Vector2D mMovement;
 
   /* finger position */
-  Vector2D mFinger;
+  late Vector2D mFinger;
 
   /* movement pointer from the last frame */
-  Vector2D mOldMovement;
+  late Vector2D mOldMovement;
 
   /* paint curl edge */
-  Paint curlEdgePaint;
+  late Paint curlEdgePaint;
 
   /* vector points used to define current clipping paths */
-  Vector2D mA, mB, mC, mD, mE, mF, mOldF, mOrigin;
+  late Vector2D mA, mB, mC, mD, mE, mF, mOldF, mOrigin;
 
   /* vectors that are corners of the entire polygon */
-  Vector2D mM, mN, mO, mP;
+  late Vector2D mM, mN, mO, mP;
 
   /* ff false no draw call has been done */
-  bool bViewDrawn;
+  late bool bViewDrawn;
 
   /* if TRUE we are currently auto-flipping */
-  bool bFlipping;
+  late bool bFlipping;
 
   /* tRUE if the user moves the pages */
-  bool bUserMoves;
+  late bool bUserMoves;
 
   /* used to control touch input blocking */
   bool bBlockTouchInput = false;
@@ -87,10 +87,11 @@ class _CurlWidgetState extends State<CurlWidget> {
         point = mOrigin.sum(point.sub(mOrigin).normalize().mult(mFlipRadius));
       } else {
         // change direction
-        if (point.x > (mOrigin.x + mFlipRadius))
+        if (point.x > (mOrigin.x + mFlipRadius)) {
           point.x = (mOrigin.x + mFlipRadius);
-        else if (point.x < (mOrigin.x - mFlipRadius))
+        } else if (point.x < (mOrigin.x - mFlipRadius)) {
           point.x = (mOrigin.x - mFlipRadius);
+        }
         point.y = math.sin(math.acos(abs(point.x - mOrigin.x) / mFlipRadius)) *
             mFlipRadius;
       }
@@ -150,7 +151,8 @@ class _CurlWidgetState extends State<CurlWidget> {
       Vector2D newmD = Vector2D(mD.x, 0);
       double l = w - newmD.x;
 
-      mE.y = -math.sqrt(abs(math.pow(l, 2) - math.pow((newmD.x - mE.x), 2)));
+      mE.y = -math.sqrt(abs(math.pow(l, 2).toDouble() -
+          math.pow((newmD.x - mE.x), 2).toDouble()));
     }
   }
 
@@ -207,8 +209,8 @@ class _CurlWidgetState extends State<CurlWidget> {
 
     if (touchEvent.getEvent() != TouchEventType.END) {
       // get finger position if NOT TouchEventType.END
-      mFinger.x = touchEvent.getX();
-      mFinger.y = touchEvent.getY();
+      mFinger.x = touchEvent.getX()!;
+      mFinger.y = touchEvent.getY()!;
     }
 
     switch (touchEvent.getEvent()) {
