@@ -55,12 +55,14 @@ class _ExampleScreenState extends State<ExampleScreen>
             // ),
             PageTurnWidget(
               amount: _controller,
-              child: Container(
-                color: Colors.blue,
-                child: Center(
-                  child: Text('hello world'),
-                ),
-              ),
+              backgroundColor: Colors.white,
+              child: AlicePage1(),
+              // child: Container(
+              //   color: Colors.blue,
+              //   child: Center(
+              //     child: Text('hello world'),
+              //   ),
+              // ),
             ),
             Positioned(
               left: 0.0,
